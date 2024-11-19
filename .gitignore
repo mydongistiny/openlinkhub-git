@@ -1,0 +1,6 @@
+**
+!.gitignore
+!OpenLinkHub.install
+!OpenLinkHub.service
+!PKGBUILD
+!.SRCINFO

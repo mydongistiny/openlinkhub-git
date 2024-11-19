@@ -1,0 +1,7 @@
+post_install() {
+    chown -R openlinkhub:openlinkhub /opt/OpenLinkHub
+}
+
+post_upgrade() {
+    chown -R openlinkhub:openlinkhub /opt/OpenLinkHub
+}
