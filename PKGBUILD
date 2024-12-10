@@ -2,7 +2,7 @@
 
 pkgname=openlinkhub-git
 _pkgname=OpenLinkHub
-pkgver=0.4.0.r0.g445d4a2
+pkgver=0.4.0.r2.g5367f02
 pkgrel=1
 pkgdesc="Open source Linux interface for iCUE LINK Hub and other Corsair AIOs, Hubs."
 arch=(x86_64)
@@ -15,6 +15,11 @@ depends=(
 makedepends=(
     git
     go
+)
+provides=(openlinkhub)
+conflicts=(
+    openlinkhub
+    openlinkhub-bin
 )
 install=OpenLinkHub.install
 source=(
