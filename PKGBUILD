@@ -2,7 +2,7 @@
 
 pkgname=openlinkhub-git
 _pkgname=OpenLinkHub
-pkgver=0.3.3.r0.gc068ea3
+pkgver=0.4.0.r0.g445d4a2
 pkgrel=1
 pkgdesc="Open source Linux interface for iCUE LINK Hub and other Corsair AIOs, Hubs."
 arch=(x86_64)
@@ -44,7 +44,6 @@ package() {
     cp -r web/ "${pkgdir}/opt/${_pkgname}"
     cp -r static/ "${pkgdir}/opt/${_pkgname}"
     cp -r database/ "${pkgdir}/opt/${_pkgname}"
-    install -Dm 644 config.json -t "${pkgdir}/opt/${_pkgname}"
     install -Dm 755 OpenLinkHub -t "${pkgdir}/opt/${_pkgname}"
 
     # Link binary to /usr
@@ -82,7 +81,24 @@ package() {
     cat > "${pkgdir}/etc/udev/rules.d/99-corsair-k65-plus.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="2b10", MODE="0666"'
     cat > "${pkgdir}/etc/udev/rules.d/99-corsair-k65-plusW.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="2b07", MODE="0666"'
     cat > "${pkgdir}/etc/udev/rules.d/99-corsair-k100-air.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1bab", MODE="0666"'
-    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-k100-airW.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1bdc", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-slipstream-wireless.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1bdc", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-st100.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="0a34", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-mm700.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1b9b", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-lt100.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="0c23", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx750i.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c05", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx850i.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c06", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx1000i.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c07", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx1000iv2.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c1e", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx1200i.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c08", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx1200iv2.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c23", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-hx1500iv2.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c1f", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-rm850i.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c0c", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-rm850i.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1c0d", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-katarpro.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1b93", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-ironclaw-rgb.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="1b5d", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-h115i-platinum.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="0c17", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-h100i-platinum.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="0c18", MODE="0666"'
+    cat > "${pkgdir}/etc/udev/rules.d/99-corsair-h100i-platinum-se.rules" <<< 'KERNEL=="hidraw*", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="0c19", MODE="0666"'
 
     # Create user for service
     echo 'u openlinkhub - "OpenLinkHub interface for iCUE LINK"' |
